@@ -1,0 +1,9 @@
+[
+    {
+        "item": "dczx",
+        "quantity": 1,
+        "borrowed_by": "admin",
+        "borrow_date": "2025-03-20",
+        "returned": false
+    }
+]

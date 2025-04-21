@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Store Tracker - Orders Management">
+    <meta name="author" content="Store Tracker Team">
+    <title>Store Tracker - Orders</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .notification {
+            background-color: #ffe6e6;
+            color: #944C4D;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .collapsible {
+            cursor: pointer;
+            background-color: #944C4D;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #944C4D;
+            border-radius: 5px;
+        }
+        #orders-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        #orders-table th, #orders-table td {
+            padding: 10px;
+            border: 1px solid #D9A7A8;
+            text-align: left;
+        }
+        #orders-table th {
+            background-color: #944C4D;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Store Tracker - Orders</h1>
+            <nav>
+                <a href="{{ url_for('dashboard') }}" class="nav-btn">Dashboard</a>
+                <a href="{{ url_for('inventory') }}" class="nav-btn">Inventory</a>
+                <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+            </nav>
+        </header>
+
+        <!-- Orders Section -->
+        <section>
+            <button class="collapsible">Orders</button>
+            <div class="content">
+                <h2>Orders</h2>
+                <form id="order-form">
+                    <select name="item_name" id="item-select" required>
+                        <option value="" disabled selected>Select Item</option>
+                        {% for name in item_names %}
+                            {% set item = inventory | selectattr('name', 'equalto', name) | first %}
+                            <option value="{{ name }}" data-quantity="{{ item.quantity }}">{{ name }} (Stock: {{ item.quantity }})</option>
+                        {% endfor %}
+                    </select>
+                    <input type="number" name="quantity" placeholder="Quantity" min="1" required>
+                    <input type="number" name="price" placeholder="Price per unit" step="0.01" min="0" required>
+                    <button type="submit">Add Order</button>
+                </form>
+                <input type="text" class="search-bar" id="order-search" placeholder="Search orders...">
+                <table id="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Price (₱)</th>
+                            <th>Ordered By</th>
+                            <th>Order Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                            <tr>
+                                <td>{{ order.item }}</td>
+                                <td>{{ order.quantity }}</td>
+                                <td>₱{{ order.price | round(2) }}</td>
+                                <td>{{ order.ordered_by }}</td>
+                                <td>{{ order.order_date }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <p>Total Revenue: <span id="total-revenue">₱{{ orders | sum(attribute='price') | round(2) }}</span></p>
+                <button id="export-orders">Export Orders to CSV</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Collapsible sections
+        document.querySelectorAll('.collapsible').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // AJAX for adding orders
+        $('#order-form').on('submit', function(e) {
+            e.preventDefault();
+            const quantity = parseInt($('input[name="quantity"]').val());
+            const selectedItem = $('#item-select option:selected');
+            const availableQuantity = parseInt(selectedItem.data('quantity'));
+            if (quantity > availableQuantity) {
+                alert(`Cannot order ${quantity} units. Only ${availableQuantity} available for ${selectedItem.val()}.`);
+                return;
+            }
+            $.ajax({
+                url: '/add_order',
+                method: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    $('#orders-table tbody').html(response.orders);
+                    $('#item-select').html(response.item_names);
+                    $('#total-revenue').text('₱' + response.total_revenue);
+                },
+                error: function(xhr) {
+                    alert(xhr.responseJSON ? xhr.responseJSON.error : 'Error adding order');
+                }
+            });
+        });
+
+        // Search functionality for orders
+        $('#order-search').on('input', function() {
+            const search = $(this).val().toLowerCase();
+            $('#orders-table tbody tr').each(function() {
+                const text = $(this).text().toLowerCase();
+                $(this).toggle(text.includes(search));
+            });
+        });
+
+        // Export orders to CSV
+        $('#export-orders').on('click', function() {
+            window.location.href = '/export_orders';
+        });
+    </script>
+</body>
+</html>

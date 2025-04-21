@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Store Tracker - Manage your store inventory efficiently">
+    <meta name="author" content="Store Tracker Team">
+    <title>Store Tracker - Inventory</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Inline styles for inventory-specific features */
+        .notification {
+            background-color: #ffe6e6;
+            color: #944C4D;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .low-stock {
+            color: #944C4D;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #D9A7A8;
+            text-align: left;
+        }
+        th {
+            background-color: #944C4D;
+            color: white;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #944C4D;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Inventory Management</h1>
+            <nav>
+                <a href="{{ url_for('dashboard') }}" class="nav-btn">Dashboard</a>
+                <a href="{{ url_for('orders') }}" class="nav-btn">Orders</a>
+                <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+            </nav>
+        </header>
+
+        <!-- Notifications -->
+        <div id="notifications">
+            {% if notifications %}
+                {% for notification in notifications %}
+                    <div class="notification">{{ notification }}</div>
+                {% endfor %}
+            {% else %}
+                <div class="notification" style="background-color: #e6ffe6; color: #4CAF50;">No overdue items.</div>
+            {% endif %}
+        </div>
+
+        <!-- Add Item -->
+        <section>
+            <h2>Add Item</h2>
+            <form id="add-item-form">
+                <input type="text" name="item_name" placeholder="Item Name" required>
+                <input type="number" name="quantity" placeholder="Quantity" min="0" required>
+                <button type="submit">Add Item</button>
+            </form>
+        </section>
+
+        <!-- Inventory List -->
+        <section>
+            <h2>Current Inventory</h2>
+            <input type="text" class="search-bar" id="inventory-search" placeholder="Search inventory...">
+            <table id="inventory-table">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Added By</th>
+                        <th>Added Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if inventory %}
+                        {% for item in inventory %}
+                            <tr>
+                                <td>{{ item.name }}</td>
+                                <td {% if item.quantity < 5 %}class="low-stock"{% endif %}>{{ item.quantity }}</td>
+                                <td>{{ item.added_by }}</td>
+                                <td>{{ item.added_date }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="4">No items in inventory.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            <button id="export-inventory">Export Inventory to CSV</button>
+        </section>
+
+        <!-- Borrow Item -->
+        <section>
+            <h2>Borrow Item</h2>
+            <form id="borrow-item-form">
+                <select name="item_name" required>
+                    <option value="" disabled selected>Select Item</option>
+                    {% for name in item_names %}
+                        <option value="{{ name }}">{{ name }}</option>
+                    {% endfor %}
+                </select>
+                <input type="number" name="quantity" placeholder="Quantity" min="1" required>
+                <button type="submit">Borrow Item</button>
+            </form>
+        </section>
+
+        <!-- Borrowed Items History -->
+        <section>
+            <h2>Borrowed Items History</h2>
+            <table id="borrow-table">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Borrowed By</th>
+                        <th>Borrow Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if borrow_history %}
+                        {% for borrow in borrow_history %}
+                            <tr>
+                                <td>{{ borrow.item }}</td>
+                                <td>{{ borrow.quantity }}</td>
+                                <td>{{ borrow.borrowed_by }}</td>
+                                <td>{{ borrow.borrow_date }}</td>
+                                <td>{{ 'Returned' if borrow.returned else 'Borrowed' }}</td>
+                                <td>
+                                    {% if not borrow.returned %}
+                                        <button class="return-item" data-id="{{ loop.index0 }}">Return</button>
+                                    {% else %}
+                                        Returned on {{ borrow.return_date }}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="6">No borrowed items.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            <button id="export-borrow">Export Borrow History to CSV</button>
+        </section>
+    </div>
+
+    <script>
+        // AJAX for adding items
+        $('#add-item-form').on('submit', function(e) {
+            e.preventDefault();
+            const formData = $(this).serialize();
+            $.ajax({
+                url: '/add_item',
+                method: 'POST',
+                data: formData,
+                success: function(response) {
+                    $('#inventory-table tbody').html(response.inventory);
+                    $('#borrow-item-form select[name="item_name"]').html(response.item_names);
+                },
+                error: function(xhr) {
+                    alert(xhr.responseJSON ? xhr.responseJSON.error : 'Error adding item');
+                }
+            });
+        });
+
+        // AJAX for borrowing items
+        $('#borrow-item-form').on('submit', function(e) {
+            e.preventDefault();
+            if (!confirm('Are you sure you want to borrow this item?')) return;
+            const formData = $(this).serialize();
+            $.ajax({
+                url: '/borrow_item',
+                method: 'POST',
+                data: formData,
+                success: function(response) {
+                    $('#inventory-table tbody').html(response.inventory);
+                    $('#borrow-table tbody').html(response.borrow_history);
+                    $('#notifications').html(response.notifications);
+                },
+                error: function(xhr) {
+                    alert(xhr.responseJSON ? xhr.responseJSON.error : 'Error borrowing item');
+                }
+            });
+        });
+
+        // AJAX for returning items
+        $(document).on('click', '.return-item', function() {
+            if (!confirm('Are you sure you want to return this item?')) return;
+            const borrowId = $(this).data('id');
+            $.ajax({
+                url: '/return_item',
+                method: 'POST',
+                data: { borrow_id: borrowId },
+                success: function(response) {
+                    $('#inventory-table tbody').html(response.inventory);
+                    $('#borrow-table tbody').html(response.borrow_history);
+                    $('#notifications').html(response.notifications);
+                },
+                error: function(xhr) {
+                    alert(xhr.responseJSON ? xhr.responseJSON.error : 'Error returning item');
+                }
+            });
+        });
+
+        // Search functionality for inventory
+        $('#inventory-search').on('input', function() {
+            const search = $(this).val().toLowerCase();
+            $('#inventory-table tbody tr').each(function() {
+                const text = $(this).text().toLowerCase();
+                $(this).toggle(text.includes(search));
+            });
+        });
+
+        // Export inventory to CSV
+        $('#export-inventory').on('click', function() {
+            window.location.href = '/export_inventory';
+        });
+
+        // Export borrow history to CSV
+        $('#export-borrow').on('click', function() {
+            window.location.href = '/export_borrow_history';
+        });
+    </script>
+</body>
+</html>

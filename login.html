@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Store Tracker - Login to manage your store efficiently">
+    <meta name="author" content="Store Tracker Team">
+    <title>Store Tracker - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <style>
+        /* Inline styles for login-specific animations */
+        .error {
+            color: #944C4D;
+            text-align: center;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .error.show {
+            opacity: 1;
+        }
+        .spinner {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #944C4D;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Store Tracker</h1>
+        <p class="subtitle">Login to manage your store efficiently</p>
+        <form id="login-form" method="POST" onsubmit="showSpinner()">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit">Login</button>
+            <div id="spinner" class="spinner"></div>
+            {% if error %}
+                <p id="error-message" class="error show">{{ error }}</p>
+            {% else %}
+                <p id="error-message" class="error"></p>
+            {% endif %}
+        </form>
+    </div>
+
+    <script>
+        // Client-side validation and spinner
+        function showSpinner() {
+            document.getElementById('spinner').style.display = 'block';
+            document.querySelector('button[type="submit"]').disabled = true;
+        }
+
+        // Show error message with animation if present
+        document.addEventListener('DOMContentLoaded', function() {
+            const errorMessage = document.getElementById('error-message');
+            if (errorMessage.textContent.trim() !== '') {
+                errorMessage.classList.add('show');
+            }
+        });
+
+        // Prevent form resubmission on page refresh
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+</body>
+</html>

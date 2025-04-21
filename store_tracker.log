@@ -1,0 +1,286 @@
+2025-04-21 18:27:19,446 - INFO - Created data directory with full permissions
+2025-04-21 18:27:19,447 - INFO - Initialized data\users.json with full permissions
+2025-04-21 18:27:19,447 - INFO - Initialized data\events.json with full permissions
+2025-04-21 18:27:19,448 - INFO - Initialized data\tasks.json with full permissions
+2025-04-21 18:27:19,449 - INFO - Initialized data\completed_tasks.json with full permissions
+2025-04-21 18:27:19,449 - INFO - Initialized data\staff.json with full permissions
+2025-04-21 18:27:19,450 - INFO - Initialized data\payroll.json with full permissions
+2025-04-21 18:27:19,451 - INFO - Initialized data\inventory.json with full permissions
+2025-04-21 18:27:19,452 - INFO - Initialized data\borrow.json with full permissions
+2025-04-21 18:27:19,452 - INFO - Initialized data\orders.json with full permissions
+2025-04-21 18:27:19,457 - INFO - Starting Store Tracker and Management System
+2025-04-21 18:27:19,520 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-21 18:27:19,521 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 18:27:19,522 - INFO -  * Restarting with stat
+2025-04-21 18:27:19,837 - INFO - Starting Store Tracker and Management System
+2025-04-21 18:27:19,855 - WARNING -  * Debugger is active!
+2025-04-21 18:27:19,862 - INFO -  * Debugger PIN: 142-367-853
+2025-04-21 18:27:31,529 - INFO - 127.0.0.1 - - [21/Apr/2025 18:27:31] "GET / HTTP/1.1" 200 -
+2025-04-21 18:27:31,578 - INFO - 127.0.0.1 - - [21/Apr/2025 18:27:31] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:27:31,870 - INFO - 127.0.0.1 - - [21/Apr/2025 18:27:31] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:27:35,019 - INFO - User admin logged in with role manager
+2025-04-21 18:27:35,020 - INFO - 127.0.0.1 - - [21/Apr/2025 18:27:35] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-04-21 18:27:35,030 - INFO - 127.0.0.1 - - [21/Apr/2025 18:27:35] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:27:35,046 - INFO - 127.0.0.1 - - [21/Apr/2025 18:27:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 18:27:36,731 - INFO - 127.0.0.1 - - [21/Apr/2025 18:27:36] "GET /inventory HTTP/1.1" 200 -
+2025-04-21 18:27:36,742 - INFO - 127.0.0.1 - - [21/Apr/2025 18:27:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 18:27:37,757 - INFO - 127.0.0.1 - - [21/Apr/2025 18:27:37] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:27:37,769 - INFO - 127.0.0.1 - - [21/Apr/2025 18:27:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 18:29:34,835 - INFO - 127.0.0.1 - - [21/Apr/2025 18:29:34] "GET /orders HTTP/1.1" 200 -
+2025-04-21 18:29:34,848 - INFO - 127.0.0.1 - - [21/Apr/2025 18:29:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 18:30:15,972 - INFO - 127.0.0.1 - - [21/Apr/2025 18:30:15] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:30:15,985 - INFO - 127.0.0.1 - - [21/Apr/2025 18:30:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 18:30:43,460 - INFO - Saved data to data\tasks.json
+2025-04-21 18:30:43,460 - INFO - 127.0.0.1 - - [21/Apr/2025 18:30:43] "POST /add_task HTTP/1.1" 200 -
+2025-04-21 18:30:44,225 - INFO - Saved data to data\tasks.json
+2025-04-21 18:30:44,225 - INFO - Saved data to data\completed_tasks.json
+2025-04-21 18:30:44,226 - INFO - 127.0.0.1 - - [21/Apr/2025 18:30:44] "POST /complete_task HTTP/1.1" 200 -
+2025-04-21 18:45:51,175 - INFO - Starting Store Tracker and Management System
+2025-04-21 18:45:51,201 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-21 18:45:51,202 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 18:45:51,203 - INFO -  * Restarting with stat
+2025-04-21 18:45:51,464 - INFO - Starting Store Tracker and Management System
+2025-04-21 18:45:51,480 - WARNING -  * Debugger is active!
+2025-04-21 18:45:51,482 - INFO -  * Debugger PIN: 142-367-853
+2025-04-21 18:46:01,028 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:01] "GET / HTTP/1.1" 200 -
+2025-04-21 18:46:01,075 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 18:46:04,586 - INFO - User admin logged in with role manager
+2025-04-21 18:46:04,586 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:04] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-04-21 18:46:04,598 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:04] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:04,612 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 18:46:12,119 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:12] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:12,128 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:12] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:46:12,163 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:12] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:46:12,352 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:12] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:12,362 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:12] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:46:12,393 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:12] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:46:12,552 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:12] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:12,562 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:12] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:46:12,593 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:12] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:46:12,743 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:12] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:12,751 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:12] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:46:12,784 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:12] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:46:13,151 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:13] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:13,159 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:13] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:46:13,187 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:13] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:46:13,399 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:13] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:13,407 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:13] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:46:13,437 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:13] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:46:13,607 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:13] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:13,615 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:13] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:46:13,643 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:13] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:46:13,847 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:13] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:13,856 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:13] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:46:13,887 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:13] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:46:14,103 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:14] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:14,111 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:46:14,183 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:14] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:46:14,327 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:14] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:14,337 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:46:14,364 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:14] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:46:14,527 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:14] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:14,537 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:46:14,599 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:14] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:46:14,751 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:14] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:14,760 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:46:14,821 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:14] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:46:24,279 - INFO -  * Detected change in 'c:\\Users\\Lyle\\Desktop\\another shit\\store_tracker\\app.py', reloading
+2025-04-21 18:46:24,310 - INFO -  * Restarting with stat
+2025-04-21 18:46:24,572 - INFO - Starting Store Tracker and Management System
+2025-04-21 18:46:24,587 - WARNING -  * Debugger is active!
+2025-04-21 18:46:24,589 - INFO -  * Debugger PIN: 142-367-853
+2025-04-21 18:46:25,751 - INFO -  * Detected change in 'c:\\Users\\Lyle\\Desktop\\another shit\\store_tracker\\app.py', reloading
+2025-04-21 18:46:25,778 - INFO -  * Restarting with stat
+2025-04-21 18:46:26,046 - INFO - Starting Store Tracker and Management System
+2025-04-21 18:46:26,060 - WARNING -  * Debugger is active!
+2025-04-21 18:46:26,062 - INFO -  * Debugger PIN: 142-367-853
+2025-04-21 18:46:28,679 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:28] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:28,717 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:28] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:46:28,770 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:28] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:46:28,773 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:28] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:46:28,943 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:28] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:28,951 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:28] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:46:28,989 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:28] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:46:28,991 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:28] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:46:29,335 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:29] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:46:29,342 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:29] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:46:29,377 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:29] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:46:29,379 - INFO - 127.0.0.1 - - [21/Apr/2025 18:46:29] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:49:18,423 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:18] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:49:18,432 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:18] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:49:18,463 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:18] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:49:18,465 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:18] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:49:24,039 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:24] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:49:24,050 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:24] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:49:24,078 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:24] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:49:24,079 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:24] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:49:24,376 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:24] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:49:24,384 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:24] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:49:24,414 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:24] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:49:24,417 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:24] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:49:25,031 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:49:25,039 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:49:25,070 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:49:25,072 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:49:25,303 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:49:25,311 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:49:25,340 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:49:25,342 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:49:25,503 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:49:25,511 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:49:25,591 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:49:25,592 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:49:25,703 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:49:25,711 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:49:25,742 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:49:25,745 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:25] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:49:34,576 - INFO - User admin logged out
+2025-04-21 18:49:34,576 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:34] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-04-21 18:49:34,582 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:34] "GET / HTTP/1.1" 200 -
+2025-04-21 18:49:34,592 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 18:49:38,903 - WARNING - Failed login attempt for username: john
+2025-04-21 18:49:38,904 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:38] "POST / HTTP/1.1" 200 -
+2025-04-21 18:49:38,914 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 18:49:44,296 - WARNING - Failed login attempt for username: john
+2025-04-21 18:49:44,296 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:44] "POST / HTTP/1.1" 200 -
+2025-04-21 18:49:44,307 - INFO - 127.0.0.1 - - [21/Apr/2025 18:49:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 18:51:02,520 - INFO - User admin logged in with role manager
+2025-04-21 18:51:02,521 - INFO - 127.0.0.1 - - [21/Apr/2025 18:51:02] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-04-21 18:51:02,525 - INFO - 127.0.0.1 - - [21/Apr/2025 18:51:02] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:51:02,539 - INFO - 127.0.0.1 - - [21/Apr/2025 18:51:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 18:51:02,551 - INFO - 127.0.0.1 - - [21/Apr/2025 18:51:02] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:51:11,063 - INFO - 127.0.0.1 - - [21/Apr/2025 18:51:11] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:51:11,073 - INFO - 127.0.0.1 - - [21/Apr/2025 18:51:11] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:51:11,100 - INFO - 127.0.0.1 - - [21/Apr/2025 18:51:11] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:51:11,102 - INFO - 127.0.0.1 - - [21/Apr/2025 18:51:11] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:51:11,278 - INFO - 127.0.0.1 - - [21/Apr/2025 18:51:11] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:51:11,287 - INFO - 127.0.0.1 - - [21/Apr/2025 18:51:11] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:51:11,316 - INFO - 127.0.0.1 - - [21/Apr/2025 18:51:11] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:51:11,319 - INFO - 127.0.0.1 - - [21/Apr/2025 18:51:11] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:53:44,991 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:44] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:53:45,000 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:45] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:53:45,029 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:45] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:53:45,032 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:45] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:53:45,214 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:45] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:53:45,223 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:45] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:53:45,251 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:45] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:53:45,254 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:45] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:53:48,577 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:48] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:53:48,585 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:48] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:53:48,617 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:48] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:53:48,619 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:48] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:53:48,750 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:48] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:53:48,758 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:48] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 18:53:48,790 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:48] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 18:53:48,791 - INFO - 127.0.0.1 - - [21/Apr/2025 18:53:48] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 18:56:02,669 - INFO - Starting Store Tracker and Management System
+2025-04-21 18:56:02,695 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-21 18:56:02,695 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 18:56:02,696 - INFO -  * Restarting with stat
+2025-04-21 18:56:02,948 - INFO - Starting Store Tracker and Management System
+2025-04-21 18:56:02,962 - WARNING -  * Debugger is active!
+2025-04-21 18:56:02,964 - INFO -  * Debugger PIN: 142-367-853
+2025-04-21 18:56:10,082 - INFO - 127.0.0.1 - - [21/Apr/2025 18:56:10] "GET / HTTP/1.1" 200 -
+2025-04-21 18:56:10,129 - INFO - 127.0.0.1 - - [21/Apr/2025 18:56:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 18:56:13,072 - INFO - User admin logged in with role manager
+2025-04-21 18:56:13,072 - INFO - 127.0.0.1 - - [21/Apr/2025 18:56:13] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-04-21 18:56:13,078 - INFO - Payroll Data: []
+2025-04-21 18:56:13,078 - INFO - Users Data: {'users': [{'username': 'admin', 'password': 'admin123', 'role': 'manager'}]}
+2025-04-21 18:56:13,078 - INFO - Staff Logs: []
+2025-04-21 18:56:13,088 - INFO - 127.0.0.1 - - [21/Apr/2025 18:56:13] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 18:56:13,105 - INFO - 127.0.0.1 - - [21/Apr/2025 18:56:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 18:56:13,124 - INFO - 127.0.0.1 - - [21/Apr/2025 18:56:13] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 19:02:53,136 - INFO - Starting Store Tracker and Management System
+2025-04-21 19:02:53,163 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-21 19:02:53,163 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 19:02:53,164 - INFO -  * Restarting with stat
+2025-04-21 19:02:53,421 - INFO - Starting Store Tracker and Management System
+2025-04-21 19:02:53,438 - WARNING -  * Debugger is active!
+2025-04-21 19:02:53,440 - INFO -  * Debugger PIN: 142-367-853
+2025-04-21 19:02:59,877 - INFO - 127.0.0.1 - - [21/Apr/2025 19:02:59] "GET / HTTP/1.1" 200 -
+2025-04-21 19:02:59,920 - INFO - 127.0.0.1 - - [21/Apr/2025 19:02:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:03:03,248 - INFO - User admin logged in with role manager
+2025-04-21 19:03:03,248 - INFO - 127.0.0.1 - - [21/Apr/2025 19:03:03] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-04-21 19:03:03,252 - INFO - Payroll Data: []
+2025-04-21 19:03:03,252 - INFO - Users Data: {'users': [{'username': 'admin', 'password': 'admin123', 'role': 'manager'}]}
+2025-04-21 19:03:03,252 - INFO - Staff Logs: []
+2025-04-21 19:03:03,260 - INFO - 127.0.0.1 - - [21/Apr/2025 19:03:03] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 19:03:03,275 - INFO - 127.0.0.1 - - [21/Apr/2025 19:03:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:03:03,292 - INFO - 127.0.0.1 - - [21/Apr/2025 19:03:03] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 19:03:43,437 - INFO - 127.0.0.1 - - [21/Apr/2025 19:03:43] "GET /orders HTTP/1.1" 200 -
+2025-04-21 19:03:43,452 - INFO - 127.0.0.1 - - [21/Apr/2025 19:03:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:10:17,622 - INFO - Starting Store Tracker and Management System
+2025-04-21 19:10:17,649 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-21 19:10:17,649 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 19:10:17,650 - INFO -  * Restarting with stat
+2025-04-21 19:10:17,909 - INFO - Starting Store Tracker and Management System
+2025-04-21 19:10:17,927 - WARNING -  * Debugger is active!
+2025-04-21 19:10:17,929 - INFO -  * Debugger PIN: 142-367-853
+2025-04-21 19:10:27,103 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:27] "GET / HTTP/1.1" 200 -
+2025-04-21 19:10:27,147 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:10:31,494 - INFO - User admin logged in with role manager
+2025-04-21 19:10:31,495 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:31] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-04-21 19:10:31,498 - INFO - Payroll Data: []
+2025-04-21 19:10:31,498 - INFO - Users Data: {'users': [{'username': 'admin', 'password': 'admin123', 'role': 'manager'}]}
+2025-04-21 19:10:31,498 - INFO - Staff Logs: []
+2025-04-21 19:10:31,506 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:31] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 19:10:31,519 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:10:31,535 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:31] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 19:10:33,891 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:33] "GET /orders HTTP/1.1" 200 -
+2025-04-21 19:10:33,903 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:10:39,154 - INFO -  * Detected change in 'c:\\Users\\Lyle\\Desktop\\another shit\\store_tracker\\app.py', reloading
+2025-04-21 19:10:39,200 - INFO -  * Restarting with stat
+2025-04-21 19:10:39,470 - INFO - Starting Store Tracker and Management System
+2025-04-21 19:10:39,485 - WARNING -  * Debugger is active!
+2025-04-21 19:10:39,487 - INFO -  * Debugger PIN: 142-367-853
+2025-04-21 19:10:41,710 - INFO -  * Detected change in 'c:\\Users\\Lyle\\Desktop\\another shit\\store_tracker\\app.py', reloading
+2025-04-21 19:10:41,736 - INFO -  * Restarting with stat
+2025-04-21 19:10:42,003 - INFO - Starting Store Tracker and Management System
+2025-04-21 19:10:42,018 - WARNING -  * Debugger is active!
+2025-04-21 19:10:42,020 - INFO -  * Debugger PIN: 142-367-853
+2025-04-21 19:10:43,227 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:43] "GET /orders HTTP/1.1" 200 -
+2025-04-21 19:10:43,262 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:43] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 19:10:43,438 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:43] "[33mGET /static/favicon.png HTTP/1.1[0m" 404 -
+2025-04-21 19:10:45,836 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:45] "GET /inventory HTTP/1.1" 200 -
+2025-04-21 19:10:45,847 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:10:46,174 - INFO - Payroll Data: []
+2025-04-21 19:10:46,175 - INFO - Users Data: {'users': [{'username': 'admin', 'password': 'admin123', 'role': 'manager'}]}
+2025-04-21 19:10:46,175 - INFO - Staff Logs: []
+2025-04-21 19:10:46,182 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:46] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 19:10:46,194 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:10:46,204 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:46] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 19:10:46,550 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:46] "GET /orders HTTP/1.1" 200 -
+2025-04-21 19:10:46,561 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:10:54,278 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:54] "GET /inventory HTTP/1.1" 200 -
+2025-04-21 19:10:54,289 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:10:55,494 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:55] "GET /orders HTTP/1.1" 200 -
+2025-04-21 19:10:55,506 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:10:57,022 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:57] "GET /inventory HTTP/1.1" 200 -
+2025-04-21 19:10:57,033 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:10:58,270 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:58] "GET /orders HTTP/1.1" 200 -
+2025-04-21 19:10:58,281 - INFO - 127.0.0.1 - - [21/Apr/2025 19:10:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:11:00,990 - INFO - Payroll Data: []
+2025-04-21 19:11:00,990 - INFO - Users Data: {'users': [{'username': 'admin', 'password': 'admin123', 'role': 'manager'}]}
+2025-04-21 19:11:00,990 - INFO - Staff Logs: []
+2025-04-21 19:11:00,990 - INFO - 127.0.0.1 - - [21/Apr/2025 19:11:00] "GET /dashboard HTTP/1.1" 200 -
+2025-04-21 19:11:01,002 - INFO - 127.0.0.1 - - [21/Apr/2025 19:11:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:11:01,013 - INFO - 127.0.0.1 - - [21/Apr/2025 19:11:01] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-04-21 19:11:01,743 - INFO - 127.0.0.1 - - [21/Apr/2025 19:11:01] "GET /orders HTTP/1.1" 200 -
+2025-04-21 19:11:01,756 - INFO - 127.0.0.1 - - [21/Apr/2025 19:11:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:11:03,630 - INFO - 127.0.0.1 - - [21/Apr/2025 19:11:03] "GET /inventory HTTP/1.1" 200 -
+2025-04-21 19:11:03,641 - INFO - 127.0.0.1 - - [21/Apr/2025 19:11:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:11:09,507 - INFO - Saved data to data\inventory.json
+2025-04-21 19:11:09,508 - INFO - 127.0.0.1 - - [21/Apr/2025 19:11:09] "POST /add_item HTTP/1.1" 200 -
+2025-04-21 19:11:16,784 - INFO - Saved data to data\inventory.json
+2025-04-21 19:11:16,784 - INFO - Saved data to data\borrow.json
+2025-04-21 19:11:16,789 - INFO - 127.0.0.1 - - [21/Apr/2025 19:11:16] "POST /borrow_item HTTP/1.1" 200 -
+2025-04-21 19:11:20,438 - INFO - 127.0.0.1 - - [21/Apr/2025 19:11:20] "GET /orders HTTP/1.1" 200 -
+2025-04-21 19:11:20,450 - INFO - 127.0.0.1 - - [21/Apr/2025 19:11:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:11:25,901 - INFO - Saved data to data\inventory.json
+2025-04-21 19:11:25,902 - INFO - Saved data to data\orders.json
+2025-04-21 19:11:25,902 - INFO - 127.0.0.1 - - [21/Apr/2025 19:11:25] "POST /add_order HTTP/1.1" 200 -

@@ -1,0 +1,15 @@
+# Core Flask dependencies
+Flask==2.3.3  # Web framework for building the application
+Werkzeug==3.0.1  # WSGI toolkit used by Flask (for session management, routing, etc.)
+
+# For JSON file handling (built into Python, no additional package needed)
+# For logging (built into Python, no additional package needed)
+# For CSV export functionality (built into Python via csv module, no additional package needed)
+
+# For cross-platform file locking (replaces fcntl)
+portalocker==2.8.2  # File locking for concurrent access to JSON files (works on Unix and Windows)
+
+# Optional: For production deployment (recommended for WSGI server)
+# gunicorn==21.2.0  # Uncomment this for production deployment on Unix-based systems
+
+# Note: jQuery is used in templates but loaded via CDN, so no Python package is needed

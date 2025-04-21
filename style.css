@@ -1,0 +1,276 @@
+/* CSS Variables for Theme Consistency */
+:root {
+    --primary-color: #944C4D; /* Main color from prompt */
+    --secondary-color: #D9A7A8; /* Lighter shade for gradient */
+    --background-color: #ffffff; /* White background for containers */
+    --text-color: #333333; /* Dark text for readability */
+    --border-color: #D9A7A8; /* Border color matching gradient */
+    --error-color: #944C4D; /* Error messages */
+    --success-color: #4CAF50; /* Success messages */
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    min-height: 100vh;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Container Styles */
+.login-container, .dashboard-container {
+    background: var(--background-color);
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography */
+h1, h2 {
+    color: var(--primary-color);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p.subtitle {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+/* Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn, .logout-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover, .logout-btn:hover {
+    background-color: #7A3E3F; /* Darker shade of primary color */
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select, button {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #7A3E3F;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Lists and Tables */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Specific Elements */
+.error {
+    color: var(--error-color);
+    text-align: center;
+    margin-top: 10px;
+}
+
+.notification {
+    background-color: #ffe6e6;
+    color: var(--error-color);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.notification.success {
+    background-color: #e6ffe6;
+    color: var(--success-color);
+}
+
+.low-stock {
+    color: var(--error-color);
+    font-weight: bold;
+}
+
+.total-revenue {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 10px 0;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.collapsible {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.collapsible:hover {
+    background-color: #7A3E3F;
+}
+
+.content {
+    padding: 10px;
+}
+
+/* Spinner (from login.html) */
+.spinner {
+    display: none;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container, .dashboard-container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    th, td {
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    input, select, button {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+}

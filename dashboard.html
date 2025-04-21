@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Store Tracker - Dashboard for managing store operations">
+    <meta name="author" content="Store Tracker Team">
+    <title>Store Tracker - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Inline styles for dashboard-specific features */
+        .notification {
+            background-color: #ffe6e6;
+            color: #944C4D;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .collapsible {
+            cursor: pointer;
+            background-color: #944C4D;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #944C4D;
+            border-radius: 5px;
+        }
+        #payroll-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        #payroll-table th, #payroll-table td {
+            padding: 10px;
+            border: 1px solid #D9A7A8;
+            text-align: left;
+        }
+        #payroll-table th {
+            background-color: #944C4D;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Store Tracker Dashboard</h1>
+            <nav>
+                <a href="{{ url_for('inventory') }}" class="nav-btn">Inventory</a>
+                <a href="{{ url_for('orders') }}" class="nav-btn">Orders</a>
+                <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+            </nav>
+        </header>
+
+        <!-- Notifications -->
+        <div id="notifications">
+            {% if notifications %}
+                {% for notification in notifications %}
+                    <div class="notification">{{ notification }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <!-- Calendar -->
+        <section>
+            <button class="collapsible">Calendar</button>
+            <div class="content">
+                <h2>Calendar</h2>
+                <form id="event-form">
+                    <input type="date" name="event_date" required>
+                    <input type="text" name="event_description" placeholder="Event Description" required>
+                    <button type="submit">Add Event</button>
+                </form>
+                <ul id="events-list">
+                    {% for event in events %}
+                        <li>{{ event.date }}: {{ event.description }} (by {{ event.added_by }})</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+
+        <!-- To-Do List -->
+        <section>
+            <button class="collapsible">To-Do List</button>
+            <div class="content">
+                <h2>To-Do List</h2>
+                <form id="task-form">
+                    <input type="time" name="task_time" required>
+                    <input type="date" name="task_date" required>
+                    <input type="text" name="task_description" placeholder="Task Description" required>
+                    <button type="submit">Add Task</button>
+                </form>
+                <input type="text" class="search-bar" id="task-search" placeholder="Search tasks...">
+                <ul id="tasks-list">
+                    {% for task in tasks %}
+                        <li data-id="{{ loop.index0 }}">{{ task.time }} on {{ task.date }}: {{ task.description }}
+                            <button class="complete-task" data-id="{{ loop.index0 }}">Complete</button>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <button id="export-tasks">Export Tasks to CSV</button>
+            </div>
+        </section>
+
+        <!-- Performance Tracker -->
+        <section>
+            <button class="collapsible">Performance Tracker</button>
+            <div class="content">
+                <h2>Performance Tracker</h2>
+                <ul id="completed-tasks-list">
+                    {% for task in completed_tasks %}
+                        <li>{{ task.time }} on {{ task.date }}: {{ task.description }} (Completed: {{ task.completed_at }})</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+
+        <!-- Staff Time Tracking -->
+        <section>
+            <button class="collapsible">Staff Time Tracking</button>
+            <div class="content">
+                <h2>Staff Time Tracking</h2>
+                <form id="staff-time-form">
+                    <select name="staff_name" required>
+                        <option value="" disabled selected>Select Staff</option>
+                        {% for name in staff_names %}
+                            <option value="{{ name }}">{{ name }}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="time_type" required>
+                        <option value="in">Time In</option>
+                        <option value="out">Time Out</option>
+                    </select>
+                    <button type="submit">Log Time</button>
+                </form>
+                <input type="text" class="search-bar" id="staff-search" placeholder="Search staff logs...">
+                <ul id="staff-logs-list">
+                    {% for staff in staff_logs %}
+                        <li>{{ staff.name }} - In: {{ staff.time_in or 'N/A' }} | Out: {{ staff.time_out or 'N/A' }}</li>
+                    {% endfor %}
+                </ul>
+                <button id="export-staff">Export Staff Logs to CSV</button>
+            </div>
+        </section>
+
+        <!-- Payroll (Manager Only) -->
+        {% if role == 'manager' %}
+        <section>
+            <button class="collapsible">Payroll</button>
+            <div class="content">
+                <h2>Payroll</h2>
+                <table id="payroll-table">
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>Salary (₱)</th>
+                            <th>Time In / Time Out</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Photographer</td>
+                            <td>₱6960.00</td>
+                            <td>2025-04-20 08:00:00 / 2025-04-20 16:00:00</td>
+                        </tr>
+                        <tr>
+                            <td>Editor</td>
+                            <td>₱5220.00</td>
+                            <td>2025-04-20 09:00:00 / 2025-04-20 15:00:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button id="export-payroll">Export Payroll to CSV</button>
+            </div>
+        </section>
+        {% endif %}
+    </div>
+
+    <script>
+        // Collapsible sections
+        document.querySelectorAll('.collapsible').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // AJAX for adding events
+        $('#event-form').on('submit', function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: '/add_event',
+                method: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    $('#events-list').html(response.events);
+                },
+                error: function() {
+                    alert('Error adding event');
+                }
+            });
+        });
+
+        // AJAX for adding tasks
+        $('#task-form').on('submit', function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: '/add_task',
+                method: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    $('#tasks-list').html(response.tasks);
+                },
+                error: function() {
+                    alert('Error adding task');
+                }
+            });
+        });
+
+        // AJAX for completing tasks
+        $(document).on('click', '.complete-task', function() {
+            const taskId = $(this).data('id');
+            $.ajax({
+                url: '/complete_task',
+                method: 'POST',
+                data: { task_id: taskId },
+                success: function(response) {
+                    $('#tasks-list').html(response.tasks);
+                    $('#completed-tasks-list').html(response.completed_tasks);
+                },
+                error: function() {
+                    alert('Error completing task');
+                }
+            });
+        });
+
+        // AJAX for staff time logging
+        $('#staff-time-form').on('submit', function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: '/log_staff_time',
+                method: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    $('#staff-logs-list').html(response.staff_logs);
+                    if (response.payroll) {
+                        console.log('Payroll HTML:', response.payroll); // Debug
+                        $('#payroll-table tbody').html(response.payroll);
+                    }
+                },
+                error: function(xhr) {
+                    alert(xhr.responseJSON ? xhr.responseJSON.error : 'Error logging staff time');
+                }
+            });
+        });
+
+        // Search functionality for tasks
+        $('#task-search').on('input', function() {
+            const search = $(this).val().toLowerCase();
+            $('#tasks-list li').each(function() {
+                const text = $(this).text().toLowerCase();
+                $(this).toggle(text.includes(search));
+            });
+        });
+
+        // Search functionality for staff logs
+        $('#staff-search').on('input', function() {
+            const search = $(this).val().toLowerCase();
+            $('#staff-logs-list li').each(function() {
+                const text = $(this).text().toLowerCase();
+                $(this).toggle(text.includes(search));
+            });
+        });
+
+        // Export tasks to CSV
+        $('#export-tasks').on('click', function() {
+            window.location.href = '/export_tasks';
+        });
+
+        // Export staff logs to CSV
+        $('#export-staff').on('click', function() {
+            window.location.href = '/export_staff_logs';
+        });
+
+        // Export payroll to CSV
+        $('#export-payroll').on('click', function() {
+            window.location.href = '/export_payroll';
+        });
+    </script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'933c39dcb9007b98',t:'MTc0NTIzMTYzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>
